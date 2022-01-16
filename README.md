@@ -3,7 +3,25 @@ This website is used to display the password cracking algorithms.
 
 
 
-#### 前端
+### 后端
+
+> 相关需求：
+>
+> python==3.7
+>
+> django==2.2.1
+>
+> django-cors-headers==3.11.0
+
+在后端目录下输入命令
+
+```
+python3 manage.py runserver
+```
+
+
+
+### 前端
 
 在前端目录下输入命令
 
@@ -16,7 +34,7 @@ npm run serve
 
 
 
-#### 接口
+### 接口
 
 **LSTM**
 
@@ -29,4 +47,13 @@ npm run serve
 **PassGAN**
 
 "module:gan,type:\<gen或train\>,email:<>,iter:<在gen时为0>,num:<>,len:<>"
+
+
+
+### TODO
+
++ LSTM，PL，PassGAN的介绍文本，放在/frontend/src/components/对应的文件中
++ LSTM，PL，PassGAN的模型，放在/backend/module/中
+  + 提供参数para（dict类型，参考上面的**接口**）
+  + 调用predict方法在/backend/result/中生成\<id\>.txt文件（id在para参数中）
 

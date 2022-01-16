@@ -119,6 +119,8 @@
 </template>
 
 <script>
+import axios from "axios";
+import Qs from "qs";
 import {
   ITER_MIN,
   ITER_MAX,
@@ -206,8 +208,22 @@ export default {
     submit: function () {
       if (this.check()) {
         this.dialogVisible = true;
-        console.log(this.toJson());
-        // TODO
+        // console.log(this.toJson());
+        let payload = {
+          msg: this.toJson(),
+        }
+        axios({
+          method: "post",
+          headers: {
+            'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',
+          },
+          data: Qs.stringify(payload),
+          url: "http://localhost:8000/server/server"
+        }).then(
+          res => {
+            console.log("业务编号: "+res.data)
+          }
+        )
       }
     },
   },
