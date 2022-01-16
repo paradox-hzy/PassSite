@@ -135,11 +135,7 @@
       </el-tabs>
     </div>
 
-    <el-dialog
-      title="提示"
-      :visible.sync="dialogVisible"
-      width="30%"
-    >
+    <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
       <span>训练结果稍后会发送至您的邮箱，请不要重复提交！</span>
       <span slot="footer" class="dialog-footer">
         <el-button type="primary" @click="dialogVisible = false"
@@ -151,6 +147,8 @@
 </template>
 
 <script>
+import axios from "axios";
+import Qs from "qs";
 import {
   EPOCH_MIN,
   EPOCH_MAX,
@@ -253,8 +251,22 @@ export default {
     submit: function () {
       if (this.check()) {
         this.dialogVisible = true;
-        console.log(this.toJson());
-        // TODO
+        // console.log(this.toJson());
+        let payload = {
+          msg: this.toJson(),
+        }
+        axios({
+          method: "post",
+          headers: {
+            'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',
+          },
+          data: Qs.stringify(payload),
+          url: "http://localhost:8000/server/server"
+        }).then(
+          res => {
+            console.log("业务编号: "+res.data)
+          }
+        )
       }
     },
   },
