@@ -5,7 +5,7 @@ const ITER_MAX = 5000;
 const PROB_MIN = 5;
 const PROB_MAX = 10;
 const GEN_NUM_MIN = 1;
-const GEN_NUM_MAX = 100000;
+const GEN_NUM_MAX = 10000;
 const SEQ_MINLEN_MIN = 6;
 const SEQ_MINLEN_MAX = 10;
 
