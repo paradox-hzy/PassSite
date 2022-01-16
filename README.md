@@ -53,7 +53,8 @@ npm run serve
 ### TODO
 
 + LSTM，PL，PassGAN的介绍文本，放在/frontend/src/components/对应的文件中
-+ LSTM，PL，PassGAN的模型，放在/backend/module/中
-  + 提供参数para（dict类型，参考上面的**接口**）
++ LSTM，PL，PassGAN的封装模型，放在/backend/module/中
+  + 构造方法：提供参数para（dict类型，参考上面的**接口**）
   + 调用predict方法在/backend/result/中生成\<id\>.txt文件（id在para参数中）
++ 完成模型后修改/backend/server/views.py，连接上3个模型
 

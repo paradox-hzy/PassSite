@@ -16,9 +16,8 @@ def fromJson(para, msgs):
     for msg in msgs:
         para[list(msg.split(':'))[0]] = list(msg.split(':'))[1]
 
-@require_http_methods(['GET', 'POST'])
 def server(request):
-    msgs = request.POST.get("msg")
+    msgs = request.GET.get("msg")
     if msgs == "" or msgs is None:
         print("参数错误")
     else:
