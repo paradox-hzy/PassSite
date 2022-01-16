@@ -317,11 +317,8 @@ export default {
           msg: this.toJson(),
         }
         axios({
-          method: "post",
-          headers: {
-            'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',
-          },
-          data: Qs.stringify(payload),
+          method: "get",
+          params: payload,
           url: "http://localhost:8000/server/server"
         }).then(
           res => {
