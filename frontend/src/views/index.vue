@@ -14,6 +14,9 @@
         <el-tab-pane label="PassGAN模型">
           <PassGAN></PassGAN>
         </el-tab-pane>
+        <el-tab-pane label="PSM">
+          <PSM></PSM>
+        </el-tab-pane>
       </el-tabs>
     </div>
   </div>
@@ -23,11 +26,13 @@
 import LSTM from "../components/LSTM.vue";
 import PL from "../components/PL.vue";
 import PassGAN from "../components/PassGAN.vue";
+import PSM from "../components/PSM.vue"
 export default {
   components: {
     LSTM,
     PL,
     PassGAN,
+    PSM,
   },
 };
 </script>
