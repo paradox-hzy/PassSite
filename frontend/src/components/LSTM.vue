@@ -4,135 +4,59 @@
       这里是有关LSTM模型的介绍。
     </div>
     <div class="pad mar-large shadow border-radius font-normal bac">
-      <el-tabs v-model="type">
-        <el-tab-pane label="生成口令" name="gen">
-          <div class="full-width">
-            <div class="mar-large">
-              <div class="mar-small">邮箱：</div>
-              <div class="mar-small">
-                <el-input
-                  v-model="email"
-                  placeholder="请输入生成口令发送的目标邮箱"
-                ></el-input>
-              </div>
-            </div>
-
-            <div class="mar-large">
-              <div class="mar-small">
-                生成口令的概率阈值下限x：（以10^(-x)为单位）
-              </div>
-              <div class="mar-small">
-                <el-input
-                  v-model="prob"
-                  :placeholder="
-                    '输入范围' + this.PROB_MIN + '-' + this.PROB_MAX
-                  "
-                ></el-input>
-              </div>
-            </div>
-
-            <div class="mar-large">
-              <div class="mar-small">生成口令的个数：</div>
-              <div class="mar-small">
-                <el-input
-                  v-model="num"
-                  :placeholder="
-                    '输入范围' + this.GEN_NUM_MIN + '-' + this.GEN_NUM_MAX
-                  "
-                ></el-input>
-              </div>
-            </div>
-
-            <div class="mar-large">
-              <div class="mar-small">生成口令的最小长度值：</div>
-              <div class="mar-small">
-                <el-input
-                  v-model="len"
-                  :placeholder="
-                    '输入范围' + this.SEQ_MINLEN_MIN + '-' + this.SEQ_MINLEN_MAX
-                  "
-                ></el-input>
-              </div>
-            </div>
-
-            <div class="mar-large">
-              <el-button class="mar-small" type="primary" @click="submit"
-                >提交</el-button
-              >
-            </div>
+      <div class="full-width">
+        <div class="mar-large">
+          <div class="mar-small">邮箱：</div>
+          <div class="mar-small">
+            <el-input
+              v-model="email"
+              placeholder="请输入生成口令发送的目标邮箱"
+            ></el-input>
           </div>
-        </el-tab-pane>
+        </div>
 
-        <el-tab-pane label="训练模型" name="train">
-          <div class="full-width">
-            <div class="mar-large">
-              <div class="mar-small">邮箱：</div>
-              <div class="mar-small">
-                <el-input
-                  v-model="email"
-                  placeholder="请输入生成口令发送的目标邮箱"
-                ></el-input>
-              </div>
-            </div>
-
-            <div class="mar-large">
-              <div class="mar-small">训练轮数：</div>
-              <div class="mar-small">
-                <el-input
-                  v-model="epoch"
-                  :placeholder="
-                    '输入范围' + this.EPOCH_MIN + '-' + this.EPOCH_MAX
-                  "
-                ></el-input>
-              </div>
-            </div>
-
-            <div class="mar-large">
-              <div class="mar-small">
-                生成口令的概率阈值下限x：（以10^(-x)为单位）
-              </div>
-              <div class="mar-small">
-                <el-input
-                  v-model="prob"
-                  :placeholder="
-                    '输入范围' + this.PROB_MIN + '-' + this.PROB_MAX
-                  "
-                ></el-input>
-              </div>
-            </div>
-
-            <div class="mar-large">
-              <div class="mar-small">生成口令的个数：</div>
-              <div class="mar-small">
-                <el-input
-                  v-model="num"
-                  :placeholder="
-                    '输入范围' + this.GEN_NUM_MIN + '-' + this.GEN_NUM_MAX
-                  "
-                ></el-input>
-              </div>
-            </div>
-
-            <div class="mar-large">
-              <div class="mar-small">生成口令的最小长度值：</div>
-              <div class="mar-small">
-                <el-input
-                  v-model="len"
-                  :placeholder="
-                    '输入范围' + this.SEQ_MINLEN_MIN + '-' + this.SEQ_MINLEN_MAX
-                  "
-                ></el-input>
-              </div>
-            </div>
-
-            <div class="mar-large">
-              <el-button class="mar-small" type="primary" @click="submit"
-                >提交</el-button
-              >
-            </div>
+        <div class="mar-large">
+          <div class="mar-small">
+            生成口令的概率阈值下限x：（以10^(-x)为单位）
           </div>
-        </el-tab-pane>
-      </el-tabs>
+          <div class="mar-small">
+            <el-input
+              v-model="prob"
+              :placeholder="'输入范围' + this.PROB_MIN + '-' + this.PROB_MAX"
+            ></el-input>
+          </div>
+        </div>
+
+        <div class="mar-large">
+          <div class="mar-small">生成口令的个数：</div>
+          <div class="mar-small">
+            <el-input
+              v-model="num"
+              :placeholder="
+                '输入范围' + this.GEN_NUM_MIN + '-' + this.GEN_NUM_MAX
+              "
+            ></el-input>
+          </div>
+        </div>
+
+        <div class="mar-large">
+          <div class="mar-small">生成口令的最小长度值：</div>
+          <div class="mar-small">
+            <el-input
+              v-model="len"
+              :placeholder="
+                '输入范围' + this.SEQ_MINLEN_MIN + '-' + this.SEQ_MINLEN_MAX
+              "
+            ></el-input>
+          </div>
+        </div>
+
+        <div class="mar-large">
+          <el-button class="mar-small" type="primary" @click="submit"
+            >提交</el-button
+          >
+        </div>
+      </div>
     </div>
 
     <el-dialog title="提示" :visible.sync="dialogVisible" width="30%">
@@ -254,16 +178,14 @@ export default {
         // console.log(this.toJson());
         let payload = {
           msg: this.toJson(),
-        }
+        };
         axios({
           method: "get",
           params: payload,
-          url: "http://localhost:8000/server/server"
-        }).then(
-          res => {
-            console.log("业务编号: "+res.data)
-          }
-        )
+          url: "http://localhost:8000/server/server",
+        }).then((res) => {
+          console.log("业务编号: " + res.data);
+        });
       }
     },
   },

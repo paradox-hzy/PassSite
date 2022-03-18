@@ -14,7 +14,7 @@
         <el-tab-pane label="PassGAN模型">
           <PassGAN></PassGAN>
         </el-tab-pane>
-        <el-tab-pane label="PSM">
+        <el-tab-pane label="口令强度计">
           <PSM></PSM>
         </el-tab-pane>
       </el-tabs>
@@ -41,8 +41,9 @@ export default {
 <style scoped>
 .title {
   margin: 30px;
-  color: var(--black);
+  color: #BD18A8;
   font-size: 50px;
+  font-family: serif;
 }
 .mar {
     margin: 10px 10px 30px 10px;

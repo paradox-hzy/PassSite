@@ -1,0 +1,7 @@
+aaaaaaaaaaaaaaaaaa	0.36633663366336633
+qqqqqqqqqqqqqqqqqq	0.2871287128712871
+zzzzzzzzzzzzzzzzzz	0.09900990099009901
+wwwwwwwwwwwwwwwwww	0.07920792079207921
+qwertyuiopasdfghjk	0.0594059405940594
+jjjjjjjjjjjjjjjjjj	0.0594059405940594
+gggggggggggggggggg	0.04950495049504951

@@ -2,7 +2,7 @@
   <div>
     <div class="mar-large full-width font-normal">
       这里是有关PSM的介绍。 （在样例模型中，评估使用的函数是 min(100,
-      2.5*密码长度))
+      5.7*密码长度))
     </div>
     <div class="pad mar-large shadow border-radius font-normal bac">
       <div class="full-width">
