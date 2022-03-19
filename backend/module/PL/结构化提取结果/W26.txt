@@ -1,0 +1,4 @@
+abcdefghijklmnopqrstuvwxyz	0.46
+qwertyuiopasdfghjklzxcvbnm	0.36
+qazwsxedcrfvtgbyhnujmikolp	0.13
+qwertyuioplkjhgfdsazxcvbnm	0.05

@@ -12,6 +12,8 @@ This website is used to display the password cracking algorithms.
 > django==2.2.1
 >
 > django-cors-headers==3.11.0
+>
+> tensorflow==2.3.0
 
 在后端目录下输入命令
 
@@ -38,31 +40,23 @@ npm run serve
 
 **LSTM**
 
-"module:lstm,type:\<gen或train\>,email:\<>,epoch:<在gen时为0>,prob:<>,num:<>,len:<>"
+"id:<>,module:lstm,type:\<gen或train\>,email:\<>,epoch:<在gen时为0>,prob:<>,num:<>,len:<>"
 
 **PL**
 
-"module:pl,type:\<gen或train\>,email:<>,extract_len:<>,epoch:<在gen时为0>,struct_prob:<>,final_prob:<>,num:<>,gen_len:<>"
+"id:<>,module:pl,type:\<gen或train\>,email:<>,extract_len:<>,epoch:<在gen时为0>,struct_prob:<>,final_prob:<>,num:<>,gen_len:<>"
 
 **PassGAN**
 
-"module:gan,type:\<gen或train\>,email:<>,iter:<在gen时为0>,num:<>,len:<>"
+"id:<>,module:gan,type:\<gen或train\>,email:<>,iter:<在gen时为0>,num:<>,len:<>"
 
 **PSM**
 
-输入："module:psm,password:<>"
+输入："id:<>,module:psm,password:<>"
 
 返回："<密码打分[0,100]>"
 
 
 
 ### TODO
-
-+ LSTM，PL，PassGAN的介绍文本，放在/frontend/src/components/对应的文件中
-+ LSTM，PL，PassGAN的封装模型，放在/backend/module/中
-  + 构造方法：提供参数para（dict类型，参考上面的**接口**）
-  + 调用predict方法在/backend/result/中生成\<id\>.txt文件（id在para参数中）
-+ 完成模型后修改/backend/server/views.py，连接上3个模型
-+ PSM的介绍文本，放在/frontend/src/components/PSM.vue中
-+ PSM代码放在/backend/module/psm中
 

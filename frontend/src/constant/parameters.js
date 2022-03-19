@@ -3,10 +3,10 @@ const EPOCH_MAX = 10;
 const ITER_MIN = 500;
 const ITER_MAX = 5000;
 const PROB_MIN = 5;
-const PROB_MAX = 10;
+const PROB_MAX = 9;
 const GEN_NUM_MIN = 1;
-const GEN_NUM_MAX = 10000;
-const SEQ_MINLEN_MIN = 6;
+const GEN_NUM_MAX = 1000;
+const SEQ_MINLEN_MIN = 4;
 const SEQ_MINLEN_MAX = 10;
 
 export { EPOCH_MIN, EPOCH_MAX, ITER_MIN, ITER_MAX, PROB_MIN, PROB_MAX, 
