@@ -1,7 +1,27 @@
 <template>
   <div>
     <div class="mar-large full-width font-normal">
-      这里是有关LSTM模型的介绍。
+      <div class="mar-large">
+        <p>
+          &nbsp;&nbsp;&nbsp;循环神经网络(RNN)及其变体，如长短期记忆网络(LSTM)和门递归单元(GRU)，都可以用于口令猜测。一个简单的RNN网络的结构包含输入层、隐藏侧、输出层，设输入为一个序列x1x2x3...xn，在网络训练时也是按照x1到xn的顺序进行。
+        </p>
+
+        <p>
+          &nbsp;&nbsp;&nbsp;隐藏层神经元具有一个隐藏状态，初始时设置为h0，根据输入的序列不断进行更新：h1=f(Ux1+Wh0+b)。这里的U、W、b都是参数，并且针对不同的序列单元都是相同的。依次递推算出h2=f(Ux2+Wh1+b)，h3，直到hn。根据隐藏层状态获取对应的输出y，公式如下：y1=softmax(Vh1+c)。这里的V、c都是参数，并且针对不同的序列单元都是相同的。同样递推算出y2，y3，直到yn。为了避免梯度消失问题，我们统一使用LSTM而不是RNN。在训练模型时，通常对口令中的每个字符进行独热码编码，以便将口令字符串转换为矩阵。此外，由于LSTM是监督学习方法，需要为输入口令x构造相应的值y。如下图所示：
+        </p>
+
+        <div class="text-center">
+          <img src="../assets/lstm.png" class="half-width" />
+        </div>
+
+        <p>
+          &nbsp;&nbsp;&nbsp;在这里，使用一个例子来说明训练的过程。假设字符集是{a、b、c、Bos、Eos}，其中Bos表示口令的开始，Eos表示口令的结束。口令“abc”被转换为一个矩阵：[[0,0,0,1,0]，[1,0,0,0,0]，[0,1,0,0,0]，[0,0,1,0,0]]，，可以看作是输入x。对应的值y为：[[1,0,0,0,0]，[0,1,0,0,0]，[0,0,1,0,0]，[0,0,0,0,1]]。
+        </p>
+
+        <p>
+          &nbsp;&nbsp;&nbsp;基于LSTM的模型是一种将概率分配给猜测口令的概率模型。通过将口令字符串的前缀输入LSTM，得到下一个字符的概率。例如，一个口令生成过程可以是：“B”-“Ba”-“Bab”-“Babc”-“BabcE”，这里每次选择概率最高的字符作为字符串的下一个字符。以字符作为最小单元进行训练和生成的模型可以被视为字符级别的（character-level）。
+        </p>
+      </div>
     </div>
     <div class="pad mar-large shadow border-radius font-normal bac">
       <div class="full-width">
@@ -201,12 +221,16 @@ export default {
   margin: 8px;
 }
 .mar-large {
-  margin: 20px;
+  margin: 15px;
+  margin-right: 40px;
 }
 .half-width {
   width: 50%;
 }
 .pad {
   padding: 20px 20px 40px 20px;
+}
+.half-width {
+  width: 50%;
 }
 </style>

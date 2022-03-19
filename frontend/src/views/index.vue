@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mar">
     <div>
       <h1 class="title">口令生成展示平台</h1>
     </div>

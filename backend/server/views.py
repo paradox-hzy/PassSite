@@ -14,7 +14,7 @@ from module.LSTM.beam_search import LSTM
 from module.PL.PLmodel import PL
 from module.PassGAN.PassGAN import PassGAN
 from module.simple.simple import Simple
-from module.psm.psm_sample import PSM
+from module.psm.main import PSM
 
 def fromJson(para, msgs):
     msgs = list(msgs.split(','))
@@ -32,7 +32,7 @@ def server(request):
 
         if para['module'] == 'psm':
             psm = PSM(para['password'])
-            return HttpResponse(psm.evaluate())
+            return HttpResponse(str(int(float(psm.evaluate()))))
         else:
             if para['module'] == 'lstm':
                 lstm = LSTM(para)

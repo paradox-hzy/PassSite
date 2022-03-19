@@ -60,7 +60,3 @@ npm run serve
 
 ### TODO
 
-+ LSTM，PL，PassGAN的介绍文本，放在/frontend/src/components/对应的文件中
-+ PSM的介绍文本，放在/frontend/src/components/PSM.vue中
-+ PSM代码放在/backend/module/psm中
-
